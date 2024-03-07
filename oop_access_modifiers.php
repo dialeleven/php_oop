@@ -11,7 +11,8 @@ class Fruit
 
 }
 
-$apple = new Fruit('Apple', 'Red');
-$banana = new Fruit('Banana', 'Yellow');
-
+$mango = new Fruit();
+echo $mango->name = 'Mango'; // OK
+#echo $mango->color = 'Yellow'; // Error
+echo $mango->weight = '300'; // Error
 ?>
