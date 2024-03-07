@@ -16,6 +16,14 @@ class Fruit
    function getName() {
       return $this->name;
    }
+
+   function setColor($color) {
+      $this->color = $color;
+   }
+
+   function getColor() {
+      return $this->color;
+   }
 }
 
 $apple = new Fruit();
