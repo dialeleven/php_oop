@@ -2,8 +2,7 @@
 /*
 https://www.w3schools.com/php/php_oop_inheritance.asp
 
-Example Explained
-
+Example Explained:
 The Strawberry class is inherited from the Fruit class.
 
 This means that the Strawberry class can use the public $name and $color properties 
