@@ -10,6 +10,11 @@ as well as the public __construct() and intro() methods from the Fruit class
 because of inheritance.
 
 The Strawberry class also has its own method: message().
+
+PHP Inheritance - Covering:
+   - Inheritance
+   - Inheritance and the Protected Access Modifier
+   - Overriding Inherited Methods
 */
 class Fruit
 {
@@ -24,17 +29,32 @@ class Fruit
    }
 
    public function intro() {
-      echo "The fruit is {$this->name} and the color is {$this->color}";   }
+      echo 'Inside ' . __FUNCTION__ . "(): The fruit is {$this->name} and the color is {$this->color}\n";
+   }
+
+   // protected methods are only accessible within the class and derived classes
+   protected function introProtected() {
+      echo 'Inside ' . __FUNCTION__ . "(): The fruit is {$this->name} and the color is {$this->color}\n";
+   }
 }
 
 // Strawberry is inherited from Fruit
-class Strawberry extends Fruit {
+class Strawberry extends Fruit
+{
    public function message() {
-      echo "Am I a fruit or a berry?";
+      echo "Am I a fruit or a berry?\n";
+
+      // call a protected method from within a drived class - OK
+      $this->introProtected();
    }
 }
 
 $strawberry = new Strawberry($name = 'Strawberry', $color = 'Red');
-$strawberry->message();
-$strawberry->intro();
+$strawberry->message(); // OK. message() is public and it calls intro() (which is protected) from within the derived class
+
+
+$strawberry->intro(); // call regular public intro() method from base class
+
+#$strawberry->introProtected(); // ERROR. intoProtected() method is protected
+
 ?>
