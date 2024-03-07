@@ -8,7 +8,12 @@ class Fruit
    public $name; // can be public, protected, or private
    public $color;
 
+   function __construct($name) {
+      $this->name = $name;
+   }
+
    // methods
+   // this is now redundant with 'setName' being part of the __construct()
    function setName($name) {
       $this->name = $name;
    }
@@ -26,13 +31,12 @@ class Fruit
    }
 }
 
-$apple = new Fruit();
-$banana = new Fruit();
+$apple = new Fruit('Apple');
+$banana = new Fruit('Banana');
 
-$apple->setName('Apple');
-$banana->setName('Banana');
+$apple->setColor('Red');
 
-echo $apple->getName();
-echo '<br>';
-echo $banana->name;
+echo 'Name: ' . $apple->getName() . "<br>\n";
+echo 'Color: ' . $apple->getColor() . "<br>\n";
+echo $banana->getName();
 ?>
