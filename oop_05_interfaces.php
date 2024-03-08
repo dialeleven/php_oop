@@ -39,14 +39,19 @@ interface Animal {
  
 class Cat implements Animal {
    public function makeSound() {
-     echo "Meow";
+     echo "Meow\n";
    }
 }
 
 class Dog implements Animal {
-   #public function 
+   public function makeSound() {
+      echo "Woof woof!\n";
+   }
 }
  
  $animal = new Cat();
  $animal->makeSound();
+
+ $animal2 = new Dog();
+ $animal2->makeSound();
 ?>
