@@ -36,6 +36,10 @@ abstract class Car {
      $this->name = $name;
    }
    abstract public function intro() : string;
+
+   // Add another abstract method and it MUST be added to the child class method(s).
+   // Uncomment the line below and see the error message generated.
+   #abstract public function someMethod() : string;
  }
  
  // Child classes
