@@ -16,7 +16,24 @@ Namespaces are declared at the beginning of a file using the 'namespace' keyword
 */
 namespace Html;
 
-class Table {
-   
+class Table
+{
+   public $title = '';
+   public $numRows = 0;
+   public function message() {
+      echo "<p>Table '{$this->title}' has {$this->numRows} rows.</p>";
+   }
 }
+
+$table = new Table();
+$table->title = 'My table';
+$table->numRows = 5;
+
+$table->message();
+
+/*
+For further organization, it is possible to have nested namespaces.
+Declare a namespace called 'Html' inside a namespace called 'Code.'
+*/
+namespace Code\Html;
 ?>
