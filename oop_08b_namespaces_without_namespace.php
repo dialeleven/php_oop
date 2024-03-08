@@ -6,7 +6,7 @@ so classes that belong to the namespace can be instantiated without any qualifie
 To access classes from outside a namespace, the class needs to have 
 the namespace attached to it.
 */
-include "Html.php";
+include "oop_08b_namespaces_html.php";
 
 $table = new Html\Table();
 $table->title = "My table";

@@ -9,7 +9,7 @@ the namespace attached to it.
 When many classes from the same namespace are being used at the same time, it is easier to use the namespace keyword.
 */
 namespace Html;
-include "Html.php";
+include "oop_08b_namespaces_html.php";
 
 $table = new Table();
 $table->title = "My table";
