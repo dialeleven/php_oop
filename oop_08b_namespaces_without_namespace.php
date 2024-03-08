@@ -15,7 +15,6 @@ $table->numRows = 5;
 $row = new Html\Row();
 $row->numCells = 3;
 ?>
-
 <html>
 <body>
 

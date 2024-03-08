@@ -18,7 +18,6 @@ $table->numRows = 5;
 $row = new Row();
 $row->numCells = 3;
 ?>
-
 <html>
 <body>
 
