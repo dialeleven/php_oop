@@ -12,12 +12,14 @@ An abstract method is a method that is declared, but not implemented in the code
 
 An abstract class or method is defined with the 'abstract' keyword
 */
-abstract class ParentClass
+abstract class ParentClass1
 {
    abstract public function someMethod1();
    abstract public function someMethod2($name, $color);
    abstract public function someMethod3() : string;
 }
+
+
 /*
 When inheriting from an abstract class, the child class method must be defined with the same name, and the same or a less restricted access modifier. So, if the abstract method is defined as protected, the child class method must be defined as either protected or public, but not private. Also, the type and number of required arguments must be the same. However, the child classes may have optional arguments in addition.
 
@@ -40,23 +42,23 @@ abstract class Car {
  class Audi extends Car {
    // try without this method and see what happens
    public function intro() : string {
-     return "Choose German quality! I'm an $this->name!";
+     return "Choose German quality! I'm an $this->name!\n";
    }
 
    public function outro() : string {
-      return "The {$this->name} goes vrooom!";
+      return "The {$this->name} goes vrooom!\n";
    }
  }
  
  class Volvo extends Car {
    public function intro() : string {
-     return "Proud to be Swedish! I'm a $this->name!";
+     return "Proud to be Swedish! I'm a $this->name!\n";
    }
  }
  
  class Citroen extends Car {
    public function intro() : string {
-     return "French extravagance! I'm a $this->name!";
+     return "French extravagance! I'm a $this->name!\n";
    }
  }
  
@@ -80,4 +82,63 @@ as well as the public __construct() method from the Car class because of inherit
 
 But, intro() is an abstract method that should be defined in all the child classes and they should return a string.
 */
+
+
+
+/*
+More Abstract Class Examples
+Let's look at another example where the abstract method has an argument:
+*/
+abstract class ParentClass {
+   // Abstract method with an argument
+   abstract protected function prefixName($name);
+ }
+ 
+class ChildClass extends ParentClass {
+   public function prefixName($name) {
+      if ($name == "John Doe") {
+         $prefix = "Mr.";
+      } elseif ($name == "Jane Doe") {
+         $prefix = "Mrs.";
+      } else {
+         $prefix = "";
+      }
+      return "{$prefix} {$name}\n";
+   }
+ }
+ 
+ $class = new ChildClass;
+ echo $class->prefixName("John Doe");
+ echo "<br>";
+ echo $class->prefixName("Jane Doe");
+
+
+ /*
+ Let's look at another example where the abstract method has an argument, and 
+ the child class has two optional arguments that are not defined in the 
+ parent's abstract method:
+ */
+abstract class ParentClass2 {
+   // Abstract method with an argument
+   abstract protected function prefixName($name);
+ }
+ 
+ class ChildClass2 extends ParentClass2 {
+   // The child class may define optional arguments that are not in the parent's abstract method
+   public function prefixName($name, $separator = ".", $greet = "Dear") {
+     if ($name == "John Doe") {
+       $prefix = "Mr";
+     } elseif ($name == "Jane Doe") {
+       $prefix = "Mrs";
+     } else {
+       $prefix = "";
+     }
+     return "{$greet} {$prefix}{$separator} {$name}\n";
+   }
+ }
+ 
+ $class = new ChildClass2;
+ echo $class->prefixName("John Doe");
+ echo "<br>";
+ echo $class->prefixName("Jane Doe");
 ?>
